@@ -1,5 +1,13 @@
  <!-- Page Heading -->
  <h1 class="h3 mb-4 text-gray-800">Cliente</h1>
+ <?php if($msgAlert != '') :?>
+ <div class="alert alert-<?=$typeAlert?> alert-dismissible fade show" role="alert">
+    <?=$msgAlert?>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+ </div>
+ <?php endif ?>
  <!-- Basic Card Example -->
  <div class="card shadow mb-4">
     <div class="card-header py-3">

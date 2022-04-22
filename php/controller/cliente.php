@@ -3,7 +3,7 @@
 
     include '../view/header.php';
 
-    function index(){
+    function index($msgAlert, $typeAlert){
         $clientes = listar();
         include '../view/cliente/index.php';
     }
@@ -12,7 +12,9 @@
             $_POST['nome'], 
             $_POST['email']
         );
-        index();
+        $msgAlert = 'Cliente cadastrado com sucesso!';
+        $typeAlert = 'success';
+        index($msgAlert, $typeAlert);
     }else if(isset($_GET['id'])){
         $cliente = buscar($_GET['id']);
         include('../view/cliente/cliente_edit.php');
@@ -22,12 +24,18 @@
             $_POST['nome'],
             $_POST['email']
         );
-        index();
+        $msgAlert = 'Cliente atualizado com sucesso!';
+        $typeAlert = 'warning';
+        index($msgAlert, $typeAlert);
     }else if(isset($_GET['excluir'])){
         excluir($_GET['excluir']);
-        index();
+        $msgAlert = 'Cliente excluido com sucesso!';
+        $typeAlert = 'danger';
+        index($msgAlert, $typeAlert);
     }else{
-        index();
+        $msgAlert = '';
+        $typeAlert = '';
+        index($msgAlert, $typeAlert);
     }
 
     include '../view/footer.php';
