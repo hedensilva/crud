@@ -12,11 +12,15 @@ function setConexao($servidor, $usuario, $senha,$database){
 function consultarSQL($sql){//select
 	global $con;
 	$resultado = $con->query($sql);
-	$linhas = array();
-	while($dados = $resultado->fetch_array(MYSQLI_ASSOC)){
-		$linhas[] = $dados;
+	if(mysqli_num_rows($resultado) > 0){
+		$linhas = array();
+		while($dados = $resultado->fetch_array(MYSQLI_ASSOC)){
+			$linhas[] = $dados;
+		}
+		return $linhas;
+	}else{
+		return 0;
 	}
-	return $linhas;
 }
 
 function executarSQL($sql){//update, delete ou insert

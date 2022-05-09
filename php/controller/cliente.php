@@ -1,6 +1,6 @@
 <?php
     include '../model/cliente_model.php';
-
+    include_once '_sessao.php';
     include '../view/header.php';
 
     function index($msgAlert, $typeAlert){

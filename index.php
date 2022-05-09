@@ -1,3 +1,3 @@
 <?php
-    header('location:php/controller/cliente.php');
+    header('location:php/controller/usuario.php?login');
 ?>
